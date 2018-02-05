@@ -10,15 +10,19 @@ namespace Lecture_1_5_Medlev_Pavel
     {
         static void Main(string[] args)
         {
-            string infoText = "Количество отображаемых символов в строке = {0}. Задержка = {1} мс. /esc- выход/";
-            string startPoint = "\n\n\n\n\t\t\t ";
-            string textStr1 = "  Московское время  ";
-            string textStr2 = ". Время как вода - течет и изменяется.. ";
+            // TODO Всё неизменяемое в константы.
+            const string infoText = "Количество отображаемых символов в строке = {0}. Задержка = {1} мс. /esc- выход/";
+            // TODO Магия упр. последовательностей. А можно было просто 
+            // Console.SetCursorPosition(9, 3)
+            const string startPoint = "\n\n\n\n\t\t\t ";
+            const string textStr1 = "  Московское время  ";
+            const string textStr2 = ". Время как вода - течет и изменяется.. ";
 
             Console.ForegroundColor = ConsoleColor.Green;
 
-            int lengthDisplayBox = 15;
-            int delayTime = 500;
+            // TODO снова константы
+            const int lengthDisplayBox = 15;
+            const int delayTime = 500;
             int i = 0;
             int lengthLineBreak = 0;
 
@@ -30,14 +34,16 @@ namespace Lecture_1_5_Medlev_Pavel
 
                 while (!Console.KeyAvailable)
                 {
+                    // TODO Конкатенация через +. Почему для infoText у вас шаблон а тут +???
                     string textBox = textStr1 + DateTime.Now.ToLongTimeString() + textStr2;
 
                     Console.Write($" {startPoint} {textBox.Substring(i, lengthDisplayBox - lengthLineBreak)}{textBox.Substring(0, lengthLineBreak)}");
                     Thread.Sleep(delayTime);
                     Console.Clear();
 
-                    i++;
-                    if (i == textBox.Length)
+                    // TODO Неправильное использование итератора. Необходимо было объединять.
+                    // i++
+                    if (++i == textBox.Length)
                     {
                         i = 0;
                         lengthLineBreak = 0;
