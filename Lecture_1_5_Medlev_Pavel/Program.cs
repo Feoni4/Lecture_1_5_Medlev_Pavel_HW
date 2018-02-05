@@ -13,7 +13,7 @@ namespace Lecture_1_5_Medlev_Pavel
             string infoText = "Количество отображаемых символов в строке = {0}. Задержка = {1} мс. /esc- выход/";
             string startPoint = "\n\n\n\n\t\t\t ";
             string textStr1 = "  Московское время  ";
-            string textStr2 = ".  Время как вода - течет и изменяется.. ";
+            string textStr2 = ". Время как вода - течет и изменяется.. ";
 
             Console.ForegroundColor = ConsoleColor.Green;
 
