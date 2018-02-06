@@ -12,9 +12,8 @@ namespace Lecture_1_5_Medlev_Pavel
         {
             // TODO Всё неизменяемое в константы.
             const string infoText = "Количество отображаемых символов в строке = {0}. Задержка = {1} мс. /esc- выход/";
-            // TODO Магия упр. последовательностей. А можно было просто 
-            // Console.SetCursorPosition(9, 3)
-            const string startPoint = "\n\n\n\n\t\t\t ";
+            // TODO Магия упр. последовательностей. А можно было просто   Console.SetCursorPosition(9, 3)
+            //const string startPoint = "\n\n\n\n\t\t\t ";
             const string textStr1 = "  Московское время  ";
             const string textStr2 = ". Время как вода - течет и изменяется.. ";
 
@@ -35,9 +34,10 @@ namespace Lecture_1_5_Medlev_Pavel
                 while (!Console.KeyAvailable)
                 {
                     // TODO Конкатенация через +. Почему для infoText у вас шаблон а тут +???
-                    string textBox = textStr1 + DateTime.Now.ToLongTimeString() + textStr2;
+                    string textBox = string.Format("{0}{1}{2}", textStr1, DateTime.Now.ToLongTimeString(), textStr2);
 
-                    Console.Write($" {startPoint} {textBox.Substring(i, lengthDisplayBox - lengthLineBreak)}{textBox.Substring(0, lengthLineBreak)}");
+                    Console.SetCursorPosition(12, 3);
+                    Console.Write($"{textBox.Substring(i, lengthDisplayBox - lengthLineBreak)}{textBox.Substring(0, lengthLineBreak)}");
                     Thread.Sleep(delayTime);
                     Console.Clear();
 
